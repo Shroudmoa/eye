@@ -1,0 +1,25 @@
+[package]
+name = "eye"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "A terminal session recorder that stores sessions as structured, replayable data"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["raw_value"] }
+libc = "0.2"
+base64 = "0.22"
+thiserror = "2"
+anyhow = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 2
+lto = "thin"
+strip = true
